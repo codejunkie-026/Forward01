@@ -1,0 +1,142 @@
+:root{
+    --header-pc: 15rem;
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url(../vendor/font/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: montserrateb;
+    src: url(../vendor/font/Montserrat-ExtraBold.otf);
+}
+@font-face {
+    font-family: lora;
+    src: url(../vendor/font/Lora-VariableItalic.ttf);
+}
+@font-face {
+    font-family: hindlight;
+    src: url(../vendor/font/HindMadurai-Light.ttf);
+}
+@font-face {
+    font-family: hindmedium;
+    src: url(../vendor/font/HindMadurai-Medium.ttf);
+}
+@font-face {
+    font-family: hindregular;
+    src: url(../vendor/font/HindMadurai-Regular.ttf);
+}
+html,
+body{
+    overflow-x: clip;
+}
+.navbar{
+    background: rgba(15, 15, 15, 0.541);
+    backdrop-filter: blur(4px);
+    z-index: 99;
+    font-family: montserrat;
+    height: 2.9rem;
+}
+.navbar-bg{
+    background: rgba(15, 15, 15, 0.459);
+    backdrop-filter: blur(4px);
+    z-index: 99;
+    font-family: montserrat; 
+}
+.nav-modal{
+    z-index: 100;
+}
+.header{
+    font-family: montserrate;
+}
+
+.header .header-title-lg{
+    font-size: 15rem;
+}
+.header .header-title-md{
+    font-size: 10rem;
+}
+
+.about{
+    margin-bottom: 10rem;
+    position: relative;
+}
+.about-header{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: lora;
+    position: relative;
+}
+.about-header::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 5px;
+    bottom: -10px;
+    background: rgba(134, 134, 134, 0.836);
+    z-index: -1;
+}
+.about-content{
+    font-family: hindlight;
+    font-size: 1.1rem;
+}
+
+.about-sub{
+    position: relative;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.about-sub::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 90%;
+    bottom: -10px;
+    background: rgba(134, 134, 134, 0.945);
+    z-index: -1;
+}
+.about-side{
+    background: linear-gradient( rgb(0, 0, 0), rgb(0, 0, 0));
+}
+
+.product-header{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: lora;
+    position: relative;
+}
+.product-header::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 5px;
+    bottom: -10px;
+    background: rgba(134, 134, 134, 0.836);
+    z-index: -1;
+}
+
+
+.custom-header{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: lora;
+    position: relative;
+}
+.custom-header::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 5px;
+    bottom: -10px;
+    background: rgba(134, 134, 134, 0.836);
+    z-index: 1;
+}
+
+.chat-bg{
+    background: oklch(98.688% 0.02129 95.306 / 0.479);
+    backdrop-filter: blur(2px);
+}
+.chat-bg:hover{
+    background: oklch(98.688% 0.02129 95.306);
+    backdrop-filter: blur(2px);
+}

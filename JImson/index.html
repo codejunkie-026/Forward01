@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="N.T" content="JIMSON™, fullstack">
+    <meta name="generator" content="htvp.0.84.0">
+    <title>JIMSON</title>
+    <!--favicon-->
+    <link rel="shortcut icon" href="./assets/vendor/favicon_io/favicon-32x32.png" type="image/x-icon">
+
+    <!--links-->
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="overflow-x-hidden bg-gray-950 select-none">
+    
+    <!--header-->
+    <div class="navbar fixed">
+        <div class="flex shadow-xs relative w-screen justify-between px-5 text-zinc-100">
+            <!--logo here-->
+            <img src="./assets/img/logo/logo.webp" alt="logo" class="absolute -left-1 -top-7 w-26 h-26">
+
+            <ul class="mx-auto top-1 hidden sm:hidden md:block lg:block md:flex lg:flex">
+                <li class="m-2 capitalize font-semibold"><a href="#">home</a></li>
+                <li class="m-2 capitalize font-semibold"><a href="#about">about</a></li>
+                <li class="m-2 capitalize font-semibold"><a href="#product">product</a></li>
+                <li class="m-2 capitalize font-semibold"><a href="#gallery">gallery</a></li>
+                <li class="m-2 capitalize font-semibold"><a href="#contact">contact</a></li>
+            </ul>
+
+            <a class="hidden sm:block md:block" href="https://instagram.com/jimson_concepts"><i class="absolute right-7 top-1 fa-brands fa-instagram text-2xl m-2"></i></a>
+            <button id="mobile-menu-btn" class="sm:block md:hidden hover:text-white focus:outline-none p-2">
+                <svg class="h-10 w-8 absolute right-7 top-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden fixed border-t top-11 left-0 nav-modal md:hidden navbar-bg w-full">
+        <div class="px-4 pt-5 pb-6">
+            
+            <!-- Mobile menu header with close button
+            <div class="flex justify-between items-center">
+                <div class="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center border border-gray-800">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 9l10 13 10-13L12 2zm0 3.5L18.5 9 12 17.5 5.5 9 12 5.5z"/>
+                    </svg>
+                </div>
+                <button id="close-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>-->
+            <div class="border-gray-800">
+                <!-- Mobile menu links -->
+                <div class="space-y-4">
+                    <a href="#" class="block text-gray-300 hover:text-white text-base font-medium">HOME</a>
+                    <a href="#about" class="block text-gray-300 hover:text-white text-base font-medium">ABOUT</a>
+                    <a href="#product" class="block text-gray-300 hover:text-white text-base font-medium">PRODUCTS</a>
+                    <a href="#gallery" class="block text-gray-300 hover:text-white text-base font-medium">GALLERY</a>
+                    <a href="#contact" class="block text-gray-300 hover:text-white text-base font-medium">CONTACT</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="border-t border-gray-800 mt-6 pt-6 flex space-x-4">
+                    <a href="https://instagram.com/jimson_concepts" class="text-gray-300 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <!--<a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                        </svg>
+                    </a>-->
+                    <button id="close-menu-btn" class="ms-auto text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header bg-stone-500 flex flex-col bg-[url(./assets/img/hero/priscilla-du-preez-my5cwTzhmNI-unsplash.webp)] bg-blend-multiply bg-fixed bg-center bg-cover h-screen">
+        
+        <div class="h-screen hidden Sm:hidden md:hidden lg:block relative">
+            <div class="align-center w-full mb-5 px-9 m-2">
+                <div class="items-start absolute left-10 top-50">
+                    <h4 data-aos="fade-right" data-aos-delay="200" class="uppercase text-amber-50">premium clothing manufacturer</h4>
+                    <h1 data-aos="fade-right" data-aos-delay="450" class="uppercase w-xl text-7xl text-yellow-600 mb-4">quality you can trust</h1>
+                    <a data-aos="fade-right" data-aos-delay="750" href="https://wa.me/2348161766410" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">get quote on whatsapp</a>
+                </div>
+                <div class="text-end absolute bottom-5 right-10">
+                    <a data-aos="fade-right" data-aos-delay="200" href="#gallery" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">view our work</a>
+                    <h4 data-aos="fade-right" data-aos-delay="450" class="uppercase text-xl text-amber-50 mt-4">manufacturer for clothing brands</h4>
+                    <h1 data-aos="fade-right" data-aos-delay="750" class="header-title-lg text-9xl text-yellow-600 font-bold">JIMSON</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-screen hidden Sm:hidden md:block lg:hidden relative">
+            <div class="align-center w-full mb-5 px-9 m-2">
+                <div class="items-start absolute left-10 top-60">
+                    <h4 data-aos="fade-right" data-aos-delay="200" class="uppercase text-amber-50">premium clothing manufacturer</h4>
+                    <h1 data-aos="fade-right" data-aos-delay="450" class="uppercase w-xl text-5xl text-yellow-600 mb-4">quality you can trust</h1>
+                    <a data-aos="fade-right" data-aos-delay="750" href="https://wa.me/2348161766410" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">get quote on whatsapp</a>
+                </div>
+                <div class="text-end absolute bottom-5 right-10">
+                    <a data-aos="fade-right" data-aos-delay="200" href="#gallery" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">view our work</a>
+                    <h4 data-aos="fade-right" data-aos-delay="450" class="uppercase text-lg text-amber-50 mt-4">manufacturer for clothing brands</h4>
+                    <h1 data-aos="fade-right" data-aos-delay="750" class="header-title-md text-9xl text-yellow-600 font-bold">JIMSON</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-screen xs:block Sm:block md:hidden lg:hidden relative">
+            <div class="align-center w-full mb-5 px-9 m-2">
+                <div class="items-start absolute left-5 top-40">
+                    <h4 data-aos="fade-right" data-aos-delay="200" data-aos="fade-right" data-aos-delay="200" class="uppercase text-sm text-amber-50">premium clothing manufacturer</h4>
+                    <h1 data-aos="fade-right" data-aos-delay="450" class="uppercase w-sm text-5xl text-yellow-600 mb-4">quality you can trust</h1>
+                    <a data-aos="fade-right" data-aos-delay="750" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">get quote on whatsapp</a>
+                </div>
+                <div class="text-end absolute bottom-5 right-5">
+                    <a data-aos="fade-right" data-aos-delay="200" href="#gallery" class="uppercase border text-yellow-600 hover:text-amber-50 p-2 rounded-sm">view our work</a>
+                    <h4 data-aos="fade-right" data-aos-delay="450" class="uppercase text-sm text-amber-50 mt-4">manufacturer for clothing brands</h4>
+                    <h1 class="header-title text-8xl text-yellow-600 font-bold">JIMSON</h1>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!--about-->
+    <div id="about"></div>
+    <div class="w-screen mt-5 pt-5 overflow-hidden">
+        <div class="about max-w-7xl pt-5 p-4 mx-auto">
+            <h1 data-aos="zoom-in" data-aos-delay="250" class="about-header uppercase text-5xl mb-6 font-bold text-yellow-600 col-lg-6">about</h1>
+            <div class="relative z-1 about-content grid sm:grid-cols-1 lg:grid-cols-2 gap-6 grid-center mx-auto">
+                <div>       
+                    <div class="text-amber-50">
+                        <p data-aos="zoom-in" data-aos-delay="300" class="text-stone-300 text-lg font-bold">
+                        Jimson Concepts is a premium clothing manufacturer based in Lagos, Nigeria, dedicated to bringing your brand vision to life. With expertise in producing 
+                        high-quality garments, we specialize in custom production for clothing brands with flexible low MOQ (as low as 6-10 pieces). <br><br>
+                        </p>
+                        <p data-aos="zoom-in" data-aos-delay="400" class="text-stone-300 text-lg font-bold">
+                        Our commitment to excellence, combined with creative direction and precision manufacturing, makes us your ideal partner for scaling your brand globally.
+                        </p><br>
+
+                        <div data-aos="zoom-in" data-aos-delay="450" class="mb-5 text-xl font-bold">
+                            <p class="text-stone-300">Creative Director</p>
+                            <p class="text-yellow-600">@own_it_thebrand</p>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-delay="500" class="text-xl font-bold">
+                            <p class="text-stone-300">Location</p>
+                            <p class="text-yellow-600">A3110, Main Tejuosho Shopping Plaza, Lagos</p>
+                        </div> 
+                    </div>
+                </div>
+                <div class="text-stone-100">   
+                    <div data-aos="zoom-in" data-aos-delay="400" class="about-sub">
+                        <div class="pl-16 flex flex-col pt-5 align-center">
+                            <p class="text-stone-300">Products</p>
+                            <p class="text-4xl font-extrabold">9+ Categories</p>
+                            <p class="text-xl text-stone-100 font-black">From blank tees to custom leather jackets</p>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="zoom-in" data-aos-delay="450" class="about-sub">
+                        <div class="pl-16 flex flex-col pt-5 align-center">
+                            <p class="text-stone-300">Minimum Order</p>
+                            <p class="text-4xl font-bold">6-10 Pieces</p>
+                            <p class="text-xl text-stone-100 font-black">Perfect for emerging and established brands</p>
+                        </div>
+                    </div>
+            
+                    <div data-aos="zoom-in" data-aos-delay="500" class="about-sub">
+                        <div class="pl-16 flex flex-col pt-5 align-center">
+                            <p class="text-stone-300">Service</p>
+                            <p class="text-4xl font-bold">Custom Rebranding</p>
+                            <p class="text-xl text-stone-100 font-black">Bulk production for your exact specifications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="400" class="hidden sm:hidden md:hidden lg:block grayscale bg-[url(./assets/img/mask/heu.webp)] bg-cover bg-center h-190 w-190 top-30 -right-60 rotate-25 absolute overflow-x-hidden">
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="400" class="opacity-25 hidden sm:hidden md:block lg:hidden grayscale bg-[url(./assets/img/mask/heu.webp)] bg-cover bg-center h-190 w-190 top-70 -right-60 rotate-25 absolute overflow-x-hidden">
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="400" class="opacity-25 sm:block md:hidden lg:hidden grayscale bg-[url(./assets/img/mask/heu.webp)] bg-cover bg-center h-190 w-190 top-80 -right-60 rotate-25 absolute overflow-x-hidden">
+            </div>
+        </div>
+    </div>
+
+
+    <!--products-->
+    <div id="product"></div>
+    <div class="container my-5 mx-auto px-4 py-8">
+        <h1 data-aos="fade-right" data-aos-delay="200" class="product-header uppercase text-5xl mb-7 text-yellow-600">our products</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: BLANK TEES -->
+            <div data-aos="fade-up-right" data-aos-delay="250" class="bg-stone-500 bg-[url(./assets/img/product/btee.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image1.jpg" alt="Blank Tees" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">BLANK TEES</h3>
+                <p class="text-gray-400 text-sm mb-4">Premium blank t-shirts in various colors and sizes</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 2: TRACKSUITS -->
+            <div data-aos="fade-up-right" data-aos-delay="300" class="bg-stone-500 bg-[url(./assets/img/product/tracksuit.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image2.jpg" alt="Tracksuits" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">TRACKSUITS</h3>
+                <p class="text-gray-400 text-sm mb-4">Complete tracksuit sets with custom branding options</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 3: DENIM -->
+            <div data-aos="fade-up-right" data-aos-delay="350" class="bg-stone-500 bg-[url(./assets/img/product/denim.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image3.jpg" alt="Denim" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">DENIM</h3>
+                <p class="text-gray-400 text-sm mb-4">High-quality denim pants with multiple styles</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 4: LEATHER PANTS -->
+            <div data-aos="fade-up-right" data-aos-delay="400" class="bg-stone-500 bg-[url(./assets/img/product/lpants.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image4.jpg" alt="Leather Pants" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">LEATHER PANTS</h3>
+                <p class="text-gray-400 text-sm mb-4">Premium leather pants for fashion-forward brands</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 5: LEATHER JACKETS -->
+            <div data-aos="fade-up-right" data-aos-delay="450" class="bg-stone-500 bg-[url(./assets/img/product/ljacket.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image5.jpg" alt="Leather Jackets" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">LEATHER JACKETS</h3>
+                <p class="text-gray-400 text-sm mb-4">Luxury leather jackets with custom designs</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 6: JOGGERS -->
+            <div data-aos="fade-up-right" data-aos-delay="500" class="bg-stone-500 bg-[url(./assets/img/product/joggers.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image6.jpg" alt="Joggers" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">JOGGERS</h3>
+                <p class="text-gray-400 text-sm mb-4">Comfortable joggers for casual and active wear</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 7: CAPS -->
+            <div data-aos="fade-up-right" data-aos-delay="550" class="bg-stone-500 bg-[url(./assets/img/product/cap.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image7.jpg" alt="Caps" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">CAPS</h3>
+                <p class="text-gray-400 text-sm mb-4">Custom caps with your brand embroidery</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 8: TANK TOPS -->
+            <div data-aos="fade-up-right" data-aos-delay="600" class="bg-stone-500 bg-[url(./assets/img/product/tanktop.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image8.jpg" alt="Tank Tops" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">TANK TOPS</h3>
+                <p class="text-gray-400 text-sm mb-4">Breathable tank tops for all seasons</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Card 9: PATTERN SHORTS -->
+            <div data-aos="fade-up-right" data-aos-delay="650" class="bg-stone-500 bg-[url(./assets/img/product/pshorts.webp)] bg-blend-multiply bg-cover bg-center border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors">
+                <!--<img src="path/to/image9.jpg" alt="Pattern Shorts" class="w-12 h-12 mb-4 rounded">-->
+                <h3 class="text-lg font-semibold text-white mb-2">PATTERN SHORTS</h3>
+                <p class="text-gray-400 text-sm mb-4">Stylish shorts with custom pattern options</p>
+                <a href="#gallery" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                    EXPLORE
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Custom-->
+    <div class="w-screen overflow-x-hidden h-126">
+        <div class="relative max-w-7xl mx-auto">
+            <div class="relative z-1 custom m-2 py-5 px-4 text-amber-50">
+                <div class="mx-auto p-2">
+                    <h1 data-aos="fade-right" data-aos-delay="200" class="custom-header text-5xl mb-7 text-yellow-600">Custom Services</h1>
+                    <p data-aos="fade-right" data-aos-delay="300" class="text-lg font-normal">
+                        We offer comprehensive rebranding services for clothing brands. Whether you need bulk production with your custom designs, unique color variations, 
+                        or specialized modifications, we have the expertise to deliver excellence.
+                    </p>
+                </div>
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="350" class="opacity-50 hidden sm:hidden md:hidden lg:block grayscale bg-[url(./assets/img/mask/hei.webp)] bg-cover bg-center h-90 w-130 top-30 -right-40 absolute">
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="350" class="opacity-50 hidden sm:hidden md:block lg:hidden grayscale bg-[url(./assets/img/mask/hei.webp)] bg-cover bg-center h-90 w-130 top-30 -right-30 absolute">
+            </div>
+            <div data-aos="fade-up-left" data-aos-delay="350" class="opacity-50 sm:block md:hidden lg:hidden grayscale bg-[url(./assets/img/mask/hei.webp)] bg-cover bg-center h-90 w-130 top-30 -right-50 absolute">
+            </div>
+        </div>
+    </div>
+
+
+    <!--gallery-->
+    <div id="gallery"></div>
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-amber-50">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-right" data-aos-delay="200" class="custom-header text-5xl mb-7 text-yellow-600">Recent Work</h2>
+                <div class="w-16 h-px bg-foreground/30 mx-auto">
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <a data-aos="fade-up-right" data-aos-delay="350" href="https://www.instagram.com/jimson_concepts/reel/C3lYQTNtauV/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden aspect-square">
+                    <div class="relative w-full h-full"><img alt="Fashion Collection" loading="lazy" decoding="async" data-nimg="fill" class="object-cover group-hover:scale-105 transition-transform duration-300" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="./assets/img/post/fashion.webp">
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
+                        <div class="p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-xl font-light text-foreground mb-2">Fashion Collection</h3>
+                            <p class="text-foreground/60 text-sm font-light flex items-center gap-2">View on Instagram <span>→</span></p>
+                        </div>
+                    </div>
+                </a>
+
+                <a data-aos="fade-up-right" data-aos-delay="400" href="https://www.instagram.com/jimson_concepts/reel/C5_wlWCNtsl/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden aspect-square">
+                    <div class="relative w-full h-full">
+                        <img alt="Sweats &amp; Shirts" loading="lazy" decoding="async" data-nimg="fill" class="object-cover group-hover:scale-105 transition-transform duration-300" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="./assets/img/post/s&s.webp">
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
+                        <div class="p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-xl font-light text-foreground mb-2">Sweats &amp; Shirts</h3>
+                            <p class="text-foreground/60 text-sm font-light flex items-center gap-2">View on Instagram <span>→</span></p>
+                        </div>
+                    </div>
+                </a>
+                <a data-aos="fade-up-right" data-aos-delay="450" href="https://www.instagram.com/reel/DAlWUNvoK28/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden aspect-square">
+                    <div class="relative w-full h-full">
+                        <img alt="Premium Outfits" loading="lazy" decoding="async" data-nimg="fill" class="object-cover group-hover:scale-105 transition-transform duration-300" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="./assets/img/post/premium.webp">
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
+                        <div class="p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-xl font-light text-foreground mb-2">Premium Outfits</h3>
+                            <p class="text-foreground/60 text-sm font-light flex items-center gap-2">View on Instagram <span>→</span></p>
+                        </div>
+                    </div>
+                </a>
+
+                <a data-aos="fade-up-right" data-aos-delay="500" href="https://www.instagram.com/p/DLPymr-Ic8/" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden aspect-square">
+                    <div class="relative w-full h-full"><img alt="Style Showcase" loading="lazy" decoding="async" data-nimg="fill" class="object-cover group-hover:scale-105 transition-transform duration-300" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="./assets/img/post/style.webp">
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
+                        <div class="p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-xl font-light text-foreground mb-2">Style Showcase</h3>
+                            <p class="text-foreground/60 text-sm font-light flex items-center gap-2">View on Instagram <span>→</span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div data-aos="fade-up-right" data-aos-delay="250" class="text-center mt-16 pt-12 border-t border-border">
+                <a href="https://instagram.com/jimson_concepts" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 border border-foreground text-foreground hover:bg-foreground/10 transition-colors font-light tracking-wide uppercase text-sm">View More on Instagram</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!--contact-->
+    <div id="contact"></div>
+    <section id="contact" class="py-20 bg-black text-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div>
+                        <h1 data-aos="fade-right" data-aos-delay="200" class="custom-header text-5xl mb-7 text-yellow-600">Get In Touch</h1>
+                    </div>
+                    <div class="space-y-6">
+                        <div data-aos="fade-right" data-aos-delay="300" class="flex gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-foreground/60 flex-shrink-0 mt-1" aria-hidden="true">
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                            <circle cx="12" cy="10" r="3"></circle></svg>
+                            <div>
+                                <p class="text-foreground/50 text-sm uppercase tracking-widest font-light mb-1">Address</p>
+                                <p class="text-foreground font-light">A3110, Main Tejuosho Shopping Plaza, Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        <div data-aos="fade-right" data-aos-delay="350" class="flex gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone text-foreground/60 flex-shrink-0 mt-1" aria-hidden="true">
+                                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                                </path>
+                            </svg>
+                            <div>
+                                <p class="text-foreground/50 text-sm uppercase tracking-widest font-light mb-1">WhatsApp</p>
+                                <a href="https://wa.me/2348161766410" target="_blank" rel="noopener noreferrer" class="text-foreground font-light hover:text-foreground/80 transition-colors">+234 816 176 6410</a>
+                            </div>
+                        </div>
+                        <div data-aos="fade-right" data-aos-delay="400" class="flex gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-foreground/60 flex-shrink-0 mt-1" aria-hidden="true">
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            </svg>
+                            <div>
+                                <p class="text-foreground/50 text-sm uppercase tracking-widest font-light mb-1">Contact</p>
+                                <a href="https://instagram.com/own_it_thebrand" target="_blank" rel="noopener noreferrer" class="text-foreground font-light hover:text-foreground/80 transition-colors">@own_it_thebrand</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-8 border-t border-border space-y-4">
+                        <p data-aos="fade-right" data-aos-delay="200" class="text-foreground/60 font-light">Follow our creative director and main account:</p>
+                        <div class="flex gap-4 flex-wrap">
+                            <a data-aos="fade-right" data-aos-delay="250" href="https://instagram.com/jimson_concepts" target="_blank" rel="noopener noreferrer" class="px-6 py-2 border border-foreground/30 text-foreground hover:border-foreground transition-colors font-light text-sm uppercase tracking-wide">Jimson Concepts</a>
+                            <a data-aos="fade-right" data-aos-delay="250" href="https://instagram.com/own_it_thebrand" target="_blank" rel="noopener noreferrer" class="px-6 py-2 border border-foreground/30 text-foreground hover:border-foreground transition-colors font-light text-sm uppercase tracking-wide">Creative Director</a>
+                            <a data-aos="fade-right" data-aos-delay="250" href="https://instagram.com/jimson_thecreator" target="_blank" rel="noopener noreferrer" class="px-6 py-2 border border-foreground/30 text-foreground hover:border-foreground transition-colors font-light text-sm uppercase tracking-wide">Creator Account</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-foreground/50 text-sm uppercase tracking-widest font-light mb-3">Name</label>
+                            <input type="text" required="" class="w-full bg-background border border-foreground/20 text-foreground px-4 py-3 font-light focus:outline-none focus:border-foreground/50 transition-colors" placeholder="Your name" name="name" value="">
+                        </div>
+                        <div>
+                            <label class="block text-foreground/50 text-sm uppercase tracking-widest font-light mb-3">Phone Number</label>
+                            <input type="tel" required="" class="w-full bg-background border border-foreground/20 text-foreground px-4 py-3 font-light focus:outline-none focus:border-foreground/50 transition-colors" placeholder="+234 000 000 0000" name="phone" value="">
+                        </div>
+                        <div>
+                            <label class="block text-foreground/50 text-sm uppercase tracking-widest font-light mb-3">Product of Interest</label>
+                            <select name="product" required="" class="w-full bg-gray-950 border border-foreground/20 text-foreground px-4 py-3 font-light focus:outline-none focus:border-foreground/50 transition-colors">
+                                <option value="" selected="">Select a product</option>
+                                <option value="Blank Tees">Blank Tees</option>
+                                <option value="Tracksuits">Tracksuits</option>
+                                <option value="Denim">Denim</option>
+                                <option value="Leather Pants">Leather Pants</option>
+                                <option value="Leather Jackets">Leather Jackets</option>
+                                <option value="Joggers">Joggers</option>
+                                <option value="Caps">Caps</option>
+                                <option value="Tank Tops">Tank Tops</option>
+                                <option value="Pattern Shorts">Pattern Shorts</option>
+                                <option value="Custom Services">Custom Services</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-foreground/50 text-sm uppercase tracking-widest font-light mb-3">Quantity</label>
+                            <input type="text" required="" class="w-full bg-background border border-foreground/20 text-foreground px-4 py-3 font-light focus:outline-none focus:border-foreground/50 transition-colors" placeholder="e.g., 50 pieces" name="quantity" value="">
+                        </div>
+                        <div>
+                            <label class="block text-foreground/50 text-sm uppercase tracking-widest font-light mb-3">Message</label>
+                            <textarea name="message" rows="4" class="w-full bg-background border border-foreground/20 text-foreground px-4 py-3 font-light focus:outline-none focus:border-foreground/50 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button data-aos="fade-up-left" data-aos-delay="200" type="submit" class="w-full px-8 py-4 bg-amber-50 text-stone-700 text-background hover:bg-amber-500 transition-colors font-bold tracking-wide uppercase text-sm">Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--footer-->
+    <footer class="bg-black border-t border-border py-12 text-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <h3 data-aos="fade-right" data-aos-delay="200" class="text-foreground font-bold text-lg">JIMSON CONCEPTS</h3>
+                    <p data-aos="fade-right" data-aos-delay="250" class="text-foreground/60 font-light text-sm">Premium clothing manufacturer for brands in Nigeria.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 data-aos="fade-right" data-aos-delay="300" class="text-foreground/50 text-sm uppercase tracking-widest font-light">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li data-aos="fade-right" data-aos-delay="350"><a href="#home" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors">Home</a></li>
+                        <li data-aos="fade-right" data-aos-delay="350"><a href="#products" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors">Products</a></li>
+                        <li data-aos="fade-right" data-aos-delay="350"><a href="#gallery" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors">Gallery</a></li>
+                        <li data-aos="fade-right" data-aos-delay="350"><a href="#contact" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 data-aos="fade-right" data-aos-delay="400" class="text-foreground/50 text-sm uppercase tracking-widest font-light">Contact</h4>
+                    <ul class="space-y-2">
+                        <li data-aos="fade-right" data-aos-delay="450" class="text-foreground/60 font-light text-sm">A3110, Main Tejuosho Shopping Plaza</li>
+                        <li data-aos="fade-right" data-aos-delay="450" class="text-foreground/60 font-light text-sm">Lagos, Nigeria</li>
+                        <li data-aos="fade-right" data-aos-delay="450"><a href="https://wa.me/2348161766410" target="_blank" rel="noopener noreferrer" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors">+234 816 176 6410</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 data-aos="fade-right" data-aos-delay="300" class="text-foreground/50 text-sm uppercase tracking-widest font-light">Follow Us</h4>
+                    <div class="flex flex-col gap-3">
+                        <a data-aos="fade-right" data-aos-delay="350" href="https://instagram.com/jimson_concepts" target="_blank" rel="noopener noreferrer" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>Main Account
+                        </a>
+                        <a data-aos="fade-right" data-aos-delay="350" href="https://instagram.com/own_it_thebrand" target="_blank" rel="noopener noreferrer" class="text-foreground/60 hover:text-foreground font-light text-sm transition-colors flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>Creative Director
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-foreground/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-amber-50 font-light text-sm">© <!-- -->2026<!-- --> Jimson Concepts. All rights reserved.</p>
+                    <div class="flex gap-6 text-foreground/50 text-sm font-light">
+                        <a href="#" class="hover:text-foreground transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-foreground transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--chat-->
+    <a data-aos="fade-up-left" data-aos-delay="200" href="https://wa.me/2348161766410" target="_blank" rel="noopener noreferrer" class="fixed chat-bg text-gray-950 bottom-4 right-7 bg-foreground hover:bg-foreground/90 text-background rounded-full p-4 transition-all duration-300 hover:scale-110 shadow-lg z-40 flex items-center justify-center" aria-label="Contact us on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true">
+            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
+            </path>
+        </svg>
+    </a>
+
+
+    <!--script-->
+    <script src="./assets/js/jimson.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+</body>
